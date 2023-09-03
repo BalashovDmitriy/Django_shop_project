@@ -1,3 +1,33 @@
 from django.db import models
 
+NULLABLE = {'null': True, 'blank': True}
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Наименование')
+    description = models.TextField(verbose_name='Описание', **NULLABLE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
 # Create your models here.
+class Product(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Наименование')
+    description = models.TextField(verbose_name='Описание', **NULLABLE)
+    image = models.ImageField(verbose_name='Изображение', upload_to='img/', **NULLABLE)
+    category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
+    price = models.IntegerField(verbose_name='Цена', **NULLABLE)
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    date_modified = models.DateTimeField(verbose_name='Дата последнего изменения')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'

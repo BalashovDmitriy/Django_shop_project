@@ -1,0 +1,102 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Компьютеры",
+      "description": "хорошие компьютеры"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Ноутбуки",
+      "description": "тратата"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Смартфоны",
+      "description": "Мобильные устройства"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Принтеры",
+      "description": "Для печати"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Сканеры",
+      "description": "Для сканирования"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "fields": {
+      "name": "ACER",
+      "description": "Компьютер",
+      "image": "",
+      "category": 1,
+      "price": null,
+      "date_created": "2023-09-04T03:55:53.958Z",
+      "date_modified": "2023-09-04T03:55:51Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "fields": {
+      "name": "Lenovo",
+      "description": "",
+      "image": "",
+      "category": 2,
+      "price": null,
+      "date_created": "2023-09-04T03:56:12.870Z",
+      "date_modified": "2023-09-04T03:56:09Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "fields": {
+      "name": "iPhone",
+      "description": "Смартфон",
+      "image": "",
+      "category": 3,
+      "price": null,
+      "date_created": "2023-09-04T03:56:47.088Z",
+      "date_modified": "2023-09-04T03:56:46Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "fields": {
+      "name": "HP",
+      "description": "МФУ",
+      "image": "",
+      "category": 4,
+      "price": null,
+      "date_created": "2023-09-04T03:57:50.065Z",
+      "date_modified": "2023-09-04T03:57:49Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "fields": {
+      "name": "Brother",
+      "description": "Сканер",
+      "image": "",
+      "category": 5,
+      "price": null,
+      "date_created": "2023-09-04T03:58:17.214Z",
+      "date_modified": "2023-09-04T03:58:15Z"
+    }
+  }
+]

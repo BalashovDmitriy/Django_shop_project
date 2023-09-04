@@ -21,7 +21,7 @@
 
 <div class="container">
     <div class="row text-start">
-        <div class="col-lg-9 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
                     <table class="table table-striped">
@@ -36,6 +36,26 @@
                         <tr>
                             <td class="w-25">Адрес</td>
                             <td>Redmond,WA,98052-6399</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td class="w-25">Имя</td>
+                            <td>{{ contacts.name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Телефон</td>
+                            <td>{{ contacts.phone }}</td>
+                        </tr>
+                        <tr>
+                            <td class="w-25">Сообщение</td>
+                            <td>{{ contacts.message }}</td>
                         </tr>
                     </table>
                 </div>

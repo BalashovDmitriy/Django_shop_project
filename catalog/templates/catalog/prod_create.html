@@ -1,0 +1,44 @@
+{% extends 'catalog/base.html' %}]
+{% block content %}
+<div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Создать товар</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="flex-container">
+                    <label for="prod_name">Название товара</label>
+                    <input type="text" name="prod_name" class="form-control" id="prod_name"
+                           placeholder="Название товара" required>
+                </div>
+                <div class="flex-container">
+                    <label for="prod_desc">Описание товара</label>
+                    <textarea class="form-control" aria-label="With textarea" id="prod_desc"
+                              placeholder="Описание товара" name="prod_desc" required></textarea>
+                </div>
+                <div class="flex-container">
+                    <label for="prod_price">Цена</label>
+                    <input type="number" name="prod_price" class="form-control" id="prod_price"
+                           placeholder="Цена, руб." required>
+                </div>
+                <div class="flex-container">
+                    <label for="prod_image">Изображение </label>
+                    <input class="form-control" type="file" name="prod_image" accept="image/*" id="prod_image">
+                </div>
+                <div class="flex-container">
+                    <label for="prod_category">Категория</label>
+                    <select class="form-control" name= "prod_category" aria-label="Default select example" id="prod_category">
+                        <option selected>Выберите категорию товара</option>
+                        {% for category in categories%}
+                        <option value={{ category.id }}>{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input class="btn btn-primary w-100" type="submit" value="Отправить"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

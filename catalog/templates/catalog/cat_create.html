@@ -1,0 +1,24 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Создать категорию</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" action="" class="form-floating">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="cat_name">Название категории</label>
+                    <input type="text" name="cat_name" class="form-control" id="cat_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cat_desc">Описание категории</label>
+                    <textarea class="form-control" aria-label="With textarea" id="cat_desc" required></textarea>
+                </div>
+                <input class="btn btn-primary w-100" type="submit" value="Отправить"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

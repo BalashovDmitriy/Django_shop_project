@@ -10,7 +10,6 @@
                 <p class="card-text">{{ object.text }}</p>
                 <p class="card-text">Создано: {{ object.created_at }}</p>
                 <p class="card-text">Просмотров: {{ object.views }}</p>
-                <p class="card-text">slug: {{ object.slug }}</p>
                 <a href="{% url 'blog_list' %}" class="btn btn-primary">К списку статей</a>
                 <a href="{% url 'blog_update' object.slug %}" class="btn btn-secondary">Редактировать</a>
                 <a href="{% url 'blog_delete' object.slug %}" class="btn btn-danger">Удалить</a>

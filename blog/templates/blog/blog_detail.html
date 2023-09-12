@@ -1,0 +1,20 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+{% load my_tags %}
+<div class="row text-center">
+    <div class="col-sm-3 mb-6 mb-sm-0">
+        <div class="card" style="width: 28rem;">
+            <img src="{{ object.image|mediapath }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ object.title }}</h5>
+                <p class="card-text">{{ object.text }}</p>
+                <p class="card-text">Создано: {{ object.created_at }}</p>
+                <p class="card-text">Просмотров: {{ object.views }}</p>
+                <a href="{% url 'blog_list' %}" class="btn btn-primary">К списку статей</a>
+                <a href="{% url 'blog_update' object.id %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'blog_delete' object.id %}" class="btn btn-danger">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

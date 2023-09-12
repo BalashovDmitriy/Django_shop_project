@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ object.title }}</h5>
                     <p class="card-text">{{ object.text|truncatechars:100 }}</p>
-                    <a href="{% url 'blog_detail' object.id %}" class="btn btn-primary form-control">Подробнее</a>
+                    <a href="{% url 'blog_detail' object.slug %}" class="btn btn-primary form-control">Подробнее</a>
                 </div>
             </div>
         </div>

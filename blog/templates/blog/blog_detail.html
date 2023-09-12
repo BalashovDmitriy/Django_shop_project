@@ -10,9 +10,15 @@
                 <p class="card-text">{{ object.text }}</p>
                 <p class="card-text">Создано: {{ object.created_at }}</p>
                 <p class="card-text">Просмотров: {{ object.views }}</p>
+                <p class="card-text">slug: {{ object.slug }}</p>
                 <a href="{% url 'blog_list' %}" class="btn btn-primary">К списку статей</a>
-                <a href="{% url 'blog_update' object.id %}" class="btn btn-secondary">Редактировать</a>
-                <a href="{% url 'blog_delete' object.id %}" class="btn btn-danger">Удалить</a>
+                <a href="{% url 'blog_update' object.slug %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'blog_delete' object.slug %}" class="btn btn-danger">Удалить</a>
+                {% if object.to_publish %}
+                <a href="{% url 'toggle_active' object.slug %}" class="btn btn-outline-info">Скрыть</a>
+                {% else %}
+                <a href="{% url 'toggle_active' object.slug %}" class="btn btn-info">Показать</a>
+                {% endif %}
             </div>
         </div>
     </div>

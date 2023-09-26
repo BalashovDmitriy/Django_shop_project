@@ -1,0 +1,22 @@
+{% extends 'catalog/base.html' %}]
+{% block content %}
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="card mb-4 box-shadow">
+            <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Удалить товар</h4>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    <div class="flex-container text-center">
+                        Товар: {{ object.name }}
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <input class="btn btn-danger" type="submit" value="Удалить"/>
+                    <a class="btn btn-primary" href="{% url 'product' object.pk %}">Отмена</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

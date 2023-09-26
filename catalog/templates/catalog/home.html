@@ -10,8 +10,7 @@
                     <div class="card-body">
                         <p>{{ product.description|truncatechars:100 }}</p>
                         {% if product.vers.current_version %}
-                            <p class="small">Номер версии {{ product.vers.number_version }}</p>
-                            <p class="small">Имя версии {{ product.vers.name_version }}</p>
+                            <p class="small">Версия: {{ product.vers.number_version }}</p>
                         {% endif %}
                     </div>
                     <div class="card-footer">

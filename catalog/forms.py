@@ -1,12 +1,19 @@
 from django import forms
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа',
               'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
 
 
-class ProductForm(forms.ModelForm):
+class MixinForm:
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+
+class ProductForm(MixinForm, forms.ModelForm):
     class Meta:
         model = Product
         exclude = ('date_modified', 'vers')
@@ -26,3 +33,9 @@ class ProductForm(forms.ModelForm):
                 raise forms.ValidationError(
                     'Описание не может содержать запрещённые слова')
         return clean_description
+
+
+class VersionForm(forms.ModelForm):
+    class Meta:
+        model = Version
+        exclude = ('prod', )

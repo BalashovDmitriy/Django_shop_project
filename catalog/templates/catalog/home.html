@@ -1,16 +1,24 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-<div class="row text-center">
-    {% for product in products %}
-        <div class="col-sm-3 mb-3 mb-sm-0">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description|truncatechars:100 }}</p>
-                    <a href="{% url 'product' product.id %}" class="btn btn-primary form-control">Подробнее</a>
+    <div class="row text-center">
+        {% for product in products %}
+            <div class="col-sm-3 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ product.description|truncatechars:100 }}</p>
+                        {% if product.vers.current_version %}
+                            <p class="small">Номер версии {{ product.vers.number_version }}</p>
+                            <p class="small">Имя версии {{ product.vers.name_version }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'product' product.id %}" class="btn btn-primary form-control">Подробнее</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
+        {% endfor %}
+    </div>
 {% endblock %}

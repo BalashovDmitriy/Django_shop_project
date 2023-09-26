@@ -16,4 +16,9 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name',)
 
 
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('prod', 'number_version', 'name_version', 'current_version')
+
+
 admin.site.register(Contacts)

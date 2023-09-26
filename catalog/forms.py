@@ -9,7 +9,7 @@ stop_words = ['казино', 'криптовалюта', 'крипта', 'би�
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ('date_modified', )
+        exclude = ('date_modified', 'vers')
 
     def clean_name(self):
         clean_name = self.cleaned_data.get('name')

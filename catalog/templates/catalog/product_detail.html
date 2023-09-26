@@ -5,12 +5,18 @@
     <div class="col-sm-3 mb-6 mb-sm-0">
         <div class="card" style="width: 28rem;">
             <img src="{{ product.image|mediapath }}" class="card-img-top">
-            <div class="card-body">
+            <div class="card-header">
                 <h5 class="card-title">{{ product.name }}</h5>
+            </div>
+            <div class="card-body">
                 <p class="card-text">{{ product.description }}</p>
                 <p class="card-text">Категория: {{ product.category }}</p>
                 <p class="card-text">Цена: {{ product.price }} руб.</p>
                 <a href="{% url 'home' %}" class="btn btn-primary">К списку товаров</a>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'product_update' object.id %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'product_delete' object.id %}" class="btn btn-danger">Удалить</a>
             </div>
         </div>
     </div>

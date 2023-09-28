@@ -12,9 +12,11 @@
                     <p class="card-text">{{ product.description }}</p>
                     <p class="card-text">Категория: {{ product.category }}</p>
                     <p class="card-text">Цена: {{ product.price }} руб.</p>
-                    {% if product.vers %}
-                        <p class="card-text">Версия: {{ product.vers.number_version }}</p>
-                    {% endif %}
+                    {% for version in product.versions.all %}
+                        {% if version.current_version %}
+                            <p class="card-text">Версия: {{ version.number_version }}</p>
+                        {% endif %}
+                    {% endfor %}
                     <a href="{% url 'home' %}" class="btn btn-primary">К списку товаров</a>
                 </div>
                 <div class="card-footer">

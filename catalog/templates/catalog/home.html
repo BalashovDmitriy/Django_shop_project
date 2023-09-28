@@ -9,9 +9,11 @@
                     </div>
                     <div class="card-body">
                         <p>{{ product.description|truncatechars:100 }}</p>
-                        {% if product.vers.current_version %}
-                            <p class="small">Версия: {{ product.vers.number_version }}</p>
-                        {% endif %}
+                        {% for version in product.versions.all %}
+                            {% if version.current_version %}
+                                <p class="card-text">Версия: {{ version.number_version }}</p>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'product' product.id %}" class="btn btn-primary form-control">Подробнее</a>

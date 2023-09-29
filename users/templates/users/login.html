@@ -4,14 +4,14 @@
         <form method="post" action="" class="form-floating" enctype="multipart/form-data">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Создать товар</h4>
+                    <h4 class="my-0 font-weight-normal">Авторизация</h4>
                 </div>
                 <div class="card-body">
                     {% csrf_token %}
                     {{ form.as_p }}
                 </div>
                 <div class="card-footer">
-                    <input class="btn btn-primary w-100" type="submit" value="Создать"/>
+                    <input class="btn btn-primary w-100" type="submit" value="Войти"/>
                 </div>
             </div>
         </form>

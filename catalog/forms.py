@@ -16,7 +16,7 @@ class MixinForm:
 class ProductForm(MixinForm, forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ('date_modified', )
+        exclude = ('date_modified', 'owner')
 
     def clean_name(self):
         clean_name = self.cleaned_data.get('name')

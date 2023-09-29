@@ -3,7 +3,6 @@ from django.contrib.auth.views import LoginView as BaseLoginView
 from django.contrib.auth.views import LogoutView as BaseLogoutView
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail, EmailMessage
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -13,10 +12,9 @@ from django.views.generic import CreateView, UpdateView
 from config import settings
 from users.forms import UserCreationForm, UserUpdateForm
 from users.models import User
+from users.token import account_activation_token
 
 import random
-
-from users.token import account_activation_token
 
 
 class LoginView(BaseLoginView):

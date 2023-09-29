@@ -1,0 +1,5 @@
+{% autoescape off %}
+    Привет, {{ user.email }}!
+    Перейдите по ссылке для завершения регистрации на сайте django shop project:
+    http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

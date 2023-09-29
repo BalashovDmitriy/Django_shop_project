@@ -17,12 +17,15 @@
                             <p class="card-text">Версия: {{ version.number_version }}</p>
                         {% endif %}
                     {% endfor %}
+                    <p class="card-text">Владелец: {{ product.owner|default:'Django shop' }}</p>
                     <a href="{% url 'home' %}" class="btn btn-primary">К списку товаров</a>
                 </div>
-                <div class="card-footer">
-                    <a href="{% url 'product_update' object.id %}" class="btn btn-secondary">Редактировать</a>
-                    <a href="{% url 'product_delete' object.id %}" class="btn btn-danger">Удалить</a>
-                </div>
+                {% if user.is_authenticated %}
+                    <div class="card-footer">
+                        <a href="{% url 'product_update' object.id %}" class="btn btn-secondary">Редактировать</a>
+                        <a href="{% url 'product_delete' object.id %}" class="btn btn-danger">Удалить</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

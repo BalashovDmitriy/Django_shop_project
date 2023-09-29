@@ -11,9 +11,10 @@
                         <p>{{ product.description|truncatechars:100 }}</p>
                         {% for version in product.versions.all %}
                             {% if version.current_version %}
-                                <p class="card-text">Версия: {{ version.number_version }}</p>
+                                <p class="card-text text-muted small">Версия: {{ version.number_version }}</p>
                             {% endif %}
                         {% endfor %}
+                        <p class="card-text text-muted">Владелец: {{ product.owner|default:'Django shop' }}</p>
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'product' product.id %}" class="btn btn-primary form-control">Подробнее</a>

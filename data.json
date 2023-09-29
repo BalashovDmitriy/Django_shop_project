@@ -1,7 +1,7 @@
 [
   {
     "model": "catalog.category",
-    "pk": 1,
+    "pk": 18,
     "fields": {
       "name": "Компьютеры",
       "description": "хорошие компьютеры"
@@ -9,7 +9,7 @@
   },
   {
     "model": "catalog.category",
-    "pk": 2,
+    "pk": 19,
     "fields": {
       "name": "Ноутбуки",
       "description": "тратата"
@@ -17,7 +17,7 @@
   },
   {
     "model": "catalog.category",
-    "pk": 3,
+    "pk": 20,
     "fields": {
       "name": "Смартфоны",
       "description": "Мобильные устройства"
@@ -25,7 +25,7 @@
   },
   {
     "model": "catalog.category",
-    "pk": 4,
+    "pk": 21,
     "fields": {
       "name": "Принтеры",
       "description": "Для печати"
@@ -33,70 +33,174 @@
   },
   {
     "model": "catalog.category",
-    "pk": 5,
+    "pk": 22,
     "fields": {
       "name": "Сканеры",
       "description": "Для сканирования"
     }
   },
   {
+    "model": "catalog.category",
+    "pk": 33,
+    "fields": {
+      "name": "Тестовая категория",
+      "description": null
+    }
+  },
+  {
     "model": "catalog.product",
+    "pk": 13,
     "fields": {
       "name": "ACER",
-      "description": "Компьютер",
-      "image": "",
-      "category": 1,
-      "price": null,
-      "date_created": "2023-09-04T03:55:53.958Z",
+      "description": "Игровой системный блок среднего уровня для игр.",
+      "image": "img/acer.jpg",
+      "category": 18,
+      "price": 52000,
+      "date_created": "2023-09-04T04:53:25.035Z",
       "date_modified": "2023-09-04T03:55:51Z"
     }
   },
   {
     "model": "catalog.product",
+    "pk": 14,
     "fields": {
       "name": "Lenovo",
-      "description": "",
-      "image": "",
-      "category": 2,
-      "price": null,
-      "date_created": "2023-09-04T03:56:12.870Z",
+      "description": "Хороший ноутбук, лучшее соотношение цены и качества.",
+      "image": "img/Lenovo.jpg",
+      "category": 19,
+      "price": 32000,
+      "date_created": "2023-09-04T04:53:25.035Z",
       "date_modified": "2023-09-04T03:56:09Z"
     }
   },
   {
     "model": "catalog.product",
+    "pk": 15,
     "fields": {
-      "name": "iPhone",
-      "description": "Смартфон",
-      "image": "",
-      "category": 3,
-      "price": null,
-      "date_created": "2023-09-04T03:56:47.088Z",
+      "name": "iPhone 14",
+      "description": "Лучший смартфон",
+      "image": "img/Iphone14.jpg",
+      "category": 20,
+      "price": 65000,
+      "date_created": "2023-09-04T04:53:25.035Z",
       "date_modified": "2023-09-04T03:56:46Z"
     }
   },
   {
     "model": "catalog.product",
+    "pk": 16,
     "fields": {
-      "name": "HP",
-      "description": "МФУ",
-      "image": "",
-      "category": 4,
-      "price": null,
-      "date_created": "2023-09-04T03:57:50.065Z",
+      "name": "МФУ HP",
+      "description": "Незаменимая вещь в офисе.",
+      "image": "img/HP.webp",
+      "category": 21,
+      "price": 14000,
+      "date_created": "2023-09-04T04:53:25.035Z",
       "date_modified": "2023-09-04T03:57:49Z"
     }
   },
   {
     "model": "catalog.product",
+    "pk": 17,
     "fields": {
       "name": "Brother",
-      "description": "Сканер",
-      "image": "",
-      "category": 5,
-      "price": null,
-      "date_created": "2023-09-04T03:58:17.214Z",
+      "description": "Хороший и удобный сканер для дома.",
+      "image": "img/brother.jpg",
+      "category": 22,
+      "price": 6500,
+      "date_created": "2023-09-04T04:53:25.035Z",
       "date_modified": "2023-09-04T03:58:15Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+      "name": "ASUS",
+      "description": "Дорогой системный блок для самых требовательных игроманов.",
+      "image": "img/asus.jpg",
+      "category": 18,
+      "price": 175000,
+      "date_created": "2023-09-06T04:57:03.634Z",
+      "date_modified": "2023-09-06T04:56:58Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 19,
+    "fields": {
+      "name": "Xiaomi mi11",
+      "description": "Смартфон в средней ценовой категории. Оптимальный выбор.\r\nПроверка ограничения в 100 символов.\r\nПроверка ограничения в 100 символов.",
+      "image": "img/xiaomi.jpg",
+      "category": 20,
+      "price": 36500,
+      "date_created": "2023-09-06T04:58:04.484Z",
+      "date_modified": "2023-09-06T04:58:03Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 20,
+    "fields": {
+      "name": "Redmi 8",
+      "description": "Бюджетный смартфон.",
+      "image": "img/redmi8.png",
+      "category": 20,
+      "price": 9500,
+      "date_created": "2023-09-06T04:58:49.043Z",
+      "date_modified": "2023-09-06T04:58:48Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 30,
+    "fields": {
+      "name": "Test",
+      "description": "test",
+      "image": "img/Снимок_экрана_от_2023-09-26_09-44-14.png",
+      "category": 33,
+      "price": 50250,
+      "date_created": "2023-09-26T06:41:11.632Z",
+      "date_modified": null
+    }
+  },
+  {
+    "model": "catalog.contacts",
+    "pk": 1,
+    "fields": {
+      "name": "Дмитрий",
+      "phone": "+79998887766",
+      "message": "Hello, Sky!"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 1,
+    "fields": {
+      "product": 20,
+      "number_version": 1,
+      "name_version": "первая",
+      "current_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "product": 30,
+      "number_version": 1,
+      "name_version": "Первая",
+      "current_version": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 5,
+    "fields": {
+      "product": 30,
+      "number_version": 2,
+      "name_version": "Вторая",
+      "current_version": true
     }
   }
 ]

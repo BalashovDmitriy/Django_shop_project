@@ -2,7 +2,11 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Django Shop Project</h5>
     <nav class="col-12 px-md-5">
         <a class="col-3 btn btn-primary" href="{% url 'home' %}">Каталог</a>
-        <a class="col-2 btn btn-secondary" href="{% url 'product_create' %}">Создать продукт</a>
+        {% if user.is_authenticated %}
+            <a class="col-2 btn btn-secondary" href="{% url 'product_create' %}">Создать продукт</a>
+        {% else %}
+            <a class="col-2 btn btn-secondary" href="{% url 'login' %}">Создать продукт</a>
+        {% endif %}
         <a class="col-2 btn btn-outline-secondary" href="{% url 'category_create' %}">Создать категорию</a>
         <a class="col-2 btn btn-dark" href="{% url 'blog_list' %}">Блог</a>
         <a class="col-2 btn btn-outline-success" href="{% url 'contacts' %}">Контакты</a>

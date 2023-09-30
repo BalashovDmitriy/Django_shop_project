@@ -12,6 +12,5 @@ urlpatterns = [
     path('register/verify_email/', TemplateView.as_view(template_name='users/verify.html'), name='verify_email'),
     path('register/success/', TemplateView.as_view(template_name='users/success_verify.html'), name='success_verify'),
     path('register/failure/', TemplateView.as_view(template_name='users/failure_verify.html'), name='failure_verify'),
-    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
-         activate, name='activate'),
+    path('activate/<uidb64>[0-9A-Za-z]+<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20}', activate, name='activate'),
 ]

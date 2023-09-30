@@ -2,7 +2,7 @@ from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, CategoryForm
 from catalog.models import *
 
 
@@ -26,7 +26,7 @@ class ContactsView(TemplateView):
 
 class CategoryCreateView(CreateView):
     model = Category
-    fields = ('name', 'description')
+    form_class = CategoryForm
     template_name = 'catalog/category_create.html'
     success_url = reverse_lazy('home')
 

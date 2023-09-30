@@ -1,6 +1,6 @@
 from django import forms
 
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
 
 stop_words = ['казино', 'криптовалюта', 'крипта', 'биржа',
               'дешево', 'бесплатно', 'обман', 'полиция', 'радар']
@@ -44,3 +44,9 @@ class VersionForm(forms.ModelForm):
         clean_product = self.cleaned_data.get('product')
 
         return clean_product
+
+
+class CategoryForm(MixinForm, forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'

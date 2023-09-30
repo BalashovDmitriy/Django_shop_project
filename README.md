@@ -1,1 +1,3 @@
-# django_shop_project
+# Django 
+# Shop 
+# Project

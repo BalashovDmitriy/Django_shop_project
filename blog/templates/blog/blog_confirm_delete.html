@@ -1,17 +1,23 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-<div class="col-lg-6 col-md-6 col-sm-12">
-    <div class="card mb-4 box-shadow">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal text-center">Удалить статью</h4>
-        </div>
-        <div class="card-body">
-            <form method="post" action="" class="form-floating form-control">
-                {% csrf_token %}
-                <h5 class="text-center">Статья: {{ object.title }} </h5>
-                <input class="btn btn-primary w-100" type="submit" value="Удалить"/>
-            </form>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card text-center">
+                <form method="post" action="" class="form-floating form-control">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-center">Удалить статью</h4>
+                    </div>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        <h5 class="text-center">{{ object.title }} </h5>
+                    </div>
+                    <div class="card-footer">
+                        <input class="custom-btn btn-5" type="submit" value="Удалить"/>
+                        <a class="custom-btn btn-2" href="{% url 'blog_detail' object.slug %}">Отмена</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

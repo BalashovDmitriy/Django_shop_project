@@ -1,25 +1,30 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-{% load my_tags %}
-<div class="row text-center">
-    <div class="col-sm-3 mb-6 mb-sm-0">
-        <div class="card" style="width: 28rem;">
-            <img src="{{ object.image|mediapath }}" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">{{ object.title }}</h5>
-                <p class="card-text">{{ object.text }}</p>
-                <p class="card-text">Создано: {{ object.created_at }}</p>
-                <p class="card-text">Просмотров: {{ object.views }}</p>
-                <a href="{% url 'blog_list' %}" class="btn btn-primary">К списку статей</a>
-                <a href="{% url 'blog_update' object.slug %}" class="btn btn-secondary">Редактировать</a>
-                <a href="{% url 'blog_delete' object.slug %}" class="btn btn-danger">Удалить</a>
-                {% if object.to_publish %}
-                <a href="{% url 'toggle_active' object.slug %}" class="btn btn-outline-info">Скрыть</a>
-                {% else %}
-                <a href="{% url 'toggle_active' object.slug %}" class="btn btn-info">Показать</a>
-                {% endif %}
+    {% load my_tags %}
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card text-center" style="width: 600px;">
+                <img src="{{ object.image|mediapath }}" class="card-img" style="max-width: 100%">
+                <div class="div-header">
+                    <h4 class="card-title">{{ object.title }}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ object.text }}</p>
+                    <p class="card-text">Создано: {{ object.created_at }}</p>
+                    <p class="card-text">Просмотров: {{ object.views }}</p>
+                    <a href="{% url 'blog_list' %}" class="custom-btn btn-11">К списку статей</a>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blog_update' object.slug %}" class="custom-btn btn-2">Редактировать</a>
+                    {% if object.to_publish %}
+                        <a href="{% url 'toggle_active' object.slug %}" class="custom-btn btn-15">Скрыть</a>
+                    {% else %}
+                        <a href="{% url 'toggle_active' object.slug %}" class="custom-btn btn-15">Показать</a>
+                    {% endif %}
+                    <a href="{% url 'blog_delete' object.slug %}" class="custom-btn btn-5">Удалить</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

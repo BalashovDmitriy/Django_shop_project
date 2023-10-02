@@ -2,9 +2,10 @@
 {% block content %}
     {% load my_tags %}
     <div class="row text-center">
+    <div class="col-4"></div>
         <div class="col-sm-3 mb-6 mb-sm-0">
-            <div class="card" style="width: 28rem;">
-                <img src="{{ product.image|mediapath }}" class="card-img-top">
+            <div class="card" style="width: 600px;">
+                <img src="{{ product.image|mediapath }}" class="card-img" style="max-width: 100%">
                 <div class="card-header">
                     <h5 class="card-title">{{ product.name }}</h5>
                 </div>
@@ -18,12 +19,12 @@
                         {% endif %}
                     {% endfor %}
                     <p class="card-text">Владелец: {{ product.owner|default:'Django shop' }}</p>
-                    <a href="{% url 'home' %}" class="btn btn-primary">К списку товаров</a>
+                    <a href="{% url 'home' %}" class="custom-btn btn-11">К списку товаров</a>
                 </div>
                 {% if user.is_authenticated %}
                     <div class="card-footer">
-                        <a href="{% url 'product_update' object.id %}" class="btn btn-secondary">Редактировать</a>
-                        <a href="{% url 'product_delete' object.id %}" class="btn btn-danger">Удалить</a>
+                        <a href="{% url 'product_update' object.id %}" class="custom-btn btn-2">Редактировать</a>
+                        <a href="{% url 'product_delete' object.id %}" class="custom-btn btn-5"><span>Удалить</span></a>
                     </div>
                 {% endif %}
             </div>

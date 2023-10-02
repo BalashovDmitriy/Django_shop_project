@@ -1,28 +1,32 @@
 {% extends 'catalog/base.html' %}]
 {% block content %}
-    <div class="col-lg-6 col-md-12 col-sm-12">
-        <form method="post" action="" class="form-floating" enctype="multipart/form-data">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    {% if user.is_authenticated %}
-                        <h4 class="my-0 font-weight-normal">Профиль</h4>
-                    {% else %}
-                        <h4 class="my-0 font-weight-normal">Регистрация нового пользователя</h4>
-                    {% endif %}
+    <div class="row text-center">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        {% if user.is_authenticated %}
+                            <h4 class="my-0 font-weight-normal">Профиль</h4>
+                        {% else %}
+                            <h4 class="my-0 font-weight-normal">Регистрация нового пользователя</h4>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                    <div class="card-footer">
+                        {% if user.is_authenticated %}
+                            <input class="custom-btn btn-1" type="submit" value="Изменить"/>
+                            <a class="custom-btn btn-13" href="{% url 'reset_password' %}">Восстановить
+                                пароль</a>
+                        {% else %}
+                            <input class="custom-btn btn-1" type="submit" value="Регистрация"/>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="card-body">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                </div>
-                <div class="card-footer">
-                    {% if user.is_authenticated %}
-                        <input class="btn btn-primary form-control" type="submit" value="Изменить"/>
-                        <a class="btn btn-danger form-control mt-2" href="{% url 'reset_password' %}">Восстановить пароль</a>
-                    {% else %}
-                        <input class="btn btn-primary w-100" type="submit" value="Зарегистрироваться"/>
-                    {% endif %}
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock %}

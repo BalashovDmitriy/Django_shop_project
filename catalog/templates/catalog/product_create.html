@@ -1,19 +1,22 @@
 {% extends 'catalog/base.html' %}]
 {% block content %}
-    <div class="col-lg-6 col-md-12 col-sm-12">
-        <form method="post" action="" class="form-floating" enctype="multipart/form-data">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Создать товар</h4>
+    <div class="row text-center">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form method="post" action="" class="form-floating" enctype="multipart/form-data">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Создать товар</h4>
+                    </div>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                    </div>
+                    <div class="card-footer">
+                        <input class="custom-btn btn-1" type="submit" value="Создать"/>
+                    </div>
                 </div>
-                <div class="card-body">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                </div>
-                <div class="card-footer">
-                    <input class="btn btn-primary w-100" type="submit" value="Создать"/>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock %}

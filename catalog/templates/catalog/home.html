@@ -2,8 +2,8 @@
 {% block content %}
     <div class="row text-center">
         {% for product in products %}
-            <div class="col-sm-3 mb-3 mb-sm-0">
-                <div class="card c">
+            <div class="col-3 mb-2 mt-2">
+                <div class="card" style="width: 450px; height: 400px">
                     <div class="card-header">
                         <h5 class="card-title">{{ product.name }}</h5>
                     </div>
@@ -17,7 +17,7 @@
                         <p class="card-text text-muted">Владелец: {{ product.owner|default:'Django shop' }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="{% url 'product' product.id %}" class="btn btn-primary form-control">Подробнее</a>
+                        <a class="custom-btn btn-11" href="{% url 'product' product.id %}">Подробнее</a>
                     </div>
                 </div>
             </div>

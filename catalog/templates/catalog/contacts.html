@@ -1,52 +1,22 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-<div class="row text-start">
-    <div class="col-lg-6 col-md-6 col-sm-12">
-        <div class="card mb-4 box-shadow">
-            <div class="card-body">
-                <table class="table table-striped">
-                    <tr>
-                        <td class="w-25">Имя</td>
-                        <td>{{ contacts.name }}</td>
-                    </tr>
-                    <tr>
-                        <td class="w-25">Телефон</td>
-                        <td>{{ contacts.phone }}</td>
-                    </tr>
-                    <tr>
-                        <td class="w-25">Сообщение</td>
-                        <td>{{ contacts.message }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Свяжитесь с нами</h4>
-            </div>
-            <div class="card-body">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card text-center">
                 <form method="post" action="" class="form-floating">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="name">Имя</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Ваше имя" required>
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Свяжитесь с нами</h4>
                     </div>
-                    <div class="mb-3">
-                        <label for="phone">Телефон</label>
-                        <input type="text" name="phone" class="form-control" id="phone" placeholder="Контактный телефон"
-                               required>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        {{ form.as_p }}
                     </div>
-                    <div class="mb-3">
-                        <label for="message">Сообщение</label>
-                        <textarea type="text" name="message" class="form-control" id="message"
-                                  placeholder="Ваше сообщение" required></textarea>
+                    <div class="card-header">
+                        <input class="custom-btn btn-1 text-center" type="submit" value="Отправить"/>
                     </div>
-                    <input class="custom-btn btn-1" type="submit" value="Отправить"/>
                 </form>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -5,16 +5,22 @@
         <div class="col-2">
             <a href="{% url 'blog_create' %} " class="custom-btn btn-10">Создать запись</a>
         </div>
-        {% for object in object_list %}
-            <div class="col-sm-3 mb-3 mb-sm-0">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ object.title }}</h5>
-                        <p class="card-text">{{ object.text|truncatechars:100 }}</p>
-                        <a href="{% url 'blog_detail' object.slug %}" class="btn btn-primary form-control">Подробнее</a>
-                    </div>
+    </div>
+    <div class="row text-center">
+    {% for object in object_list %}
+        <div class="col-3 mb-2 mt-2">
+            <div class="card" style="width: 450px; height: 300px">
+                <div class="card-header">
+                    <h5 class="card-title">{{ object.title }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ object.text|truncatechars:100 }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'blog_detail' object.slug %}" class="custom-btn btn-11">Подробнее</a>
                 </div>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
     </div>
 {% endblock %}

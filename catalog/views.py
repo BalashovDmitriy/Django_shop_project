@@ -1,10 +1,11 @@
 from django.core.mail import send_mail
 from django.forms import inlineformset_factory
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView, ListView
-
+from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView
 from catalog.forms import ProductForm, VersionForm, ContactForm
 from catalog.models import *
+from catalog.services import categories_get_cache, send_message_mail
 
 
 class CatalogView(TemplateView):
@@ -23,24 +24,14 @@ class ContactsView(CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        if form.is_valid():
-            self.object = form.save()
-            send_mail(
-                subject='У вас новое сообщение',
-                message=f'{self.object}\n{self.object.message}',
-                from_email='reaver74@yandex.ru',
-                recipient_list=['reaver_std@mail.ru'],
-                fail_silently=False
-            )
+        obj = form.save()
+        send_message_mail(obj)
         return super().form_valid(form)
 
 
-class CategoryListView(ListView):
-    model = Category
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+def categories(request):
+    category_list = categories_get_cache()
+    return render(request, 'catalog/categories.html', {'object_list': category_list})
 
 
 class CategoryDetailView(DetailView):

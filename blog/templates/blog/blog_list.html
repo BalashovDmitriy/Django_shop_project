@@ -1,26 +1,31 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
-    <div class="row text-center">
-        <div class="col-5"></div>
-        <div class="col-2">
-            <a href="{% url 'blog_create' %} " class="custom-btn btn-10">Создать запись</a>
-        </div>
+    <div class="pricing-header px-3 py-3 pt-md-3 pb-md-3 mx-auto text-center">
+        <h1 class="display-4">Блог</h1>
     </div>
-    <div class="row text-center">
-    {% for object in object_list %}
-        <div class="col-3 mb-2 mt-2">
-            <div class="card" style="width: 29rem; height: 20rem">
-                <div class="card-header">
-                    <h5 class="card-title">{{ object.title }}</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{ object.text|truncatechars:100 }}</p>
-                </div>
-                <div class="card-footer">
-                    <a href="{% url 'blog_detail' object.slug %}" class="custom-btn btn-11">Подробнее</a>
-                </div>
+    {% if user.is_authenticated %}
+        <div class="row text-center">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <a href="{% url 'blog_create' %} " class="custom-btn btn-10">Создать запись</a>
             </div>
         </div>
-    {% endfor %}
+    {% endif %}
+    <div class="row text-center">
+        {% for object in object_list %}
+            <div class="col-3 mb-2 mt-2">
+                <div class="card" style="width: 29rem; height: 20rem">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ object.title }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ object.text|truncatechars:100 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'blog_detail' object.slug %}" class="custom-btn btn-11">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

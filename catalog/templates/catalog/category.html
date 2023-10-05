@@ -1,17 +1,16 @@
 {% extends 'catalog/base.html' %}
 {% block content %}
     <div class="pricing-header px-3 py-3 pt-md-3 pb-md-3 mx-auto text-center">
-        <h1 class="display-4">Главная</h1>
+        <h1 class="display-4">{{ object.name }}</h1>
     </div>
     <div class="row text-center">
         {% for product in products %}
             <div class="col-3 mb-2 mt-2">
-                <div class="card" style="width: 29rem; height: 22rem">
+                <div class="card" style="width: 29rem; height: 20rem">
                     <div class="card-header">
-                        <h5 class="card-title">{{ product.category }}</h5>
+                        <h5 class="card-title">{{ product.name }}</h5>
                     </div>
                     <div class="card-body">
-                        <p>{{ product.name }}</p>
                         <p>{{ product.description|truncatechars:100 }}</p>
                         {% for version in product.versions.all %}
                             {% if version.current_version %}

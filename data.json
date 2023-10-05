@@ -49,19 +49,6 @@
   },
   {
     "model": "catalog.product",
-    "pk": 13,
-    "fields": {
-      "name": "ACER",
-      "description": "Игровой системный блок среднего уровня для игр.",
-      "image": "img/acer.jpg",
-      "category": 18,
-      "price": 52000,
-      "date_created": "2023-09-04T04:53:25.035Z",
-      "date_modified": "2023-09-04T03:55:51Z"
-    }
-  },
-  {
-    "model": "catalog.product",
     "pk": 14,
     "fields": {
       "name": "Lenovo",
@@ -70,7 +57,8 @@
       "category": 19,
       "price": 32000,
       "date_created": "2023-09-04T04:53:25.035Z",
-      "date_modified": "2023-09-04T03:56:09Z"
+      "date_modified": "2023-09-04T03:56:09Z",
+      "owner": null
     }
   },
   {
@@ -83,7 +71,8 @@
       "category": 20,
       "price": 65000,
       "date_created": "2023-09-04T04:53:25.035Z",
-      "date_modified": "2023-09-04T03:56:46Z"
+      "date_modified": "2023-09-04T03:56:46Z",
+      "owner": null
     }
   },
   {
@@ -96,7 +85,8 @@
       "category": 21,
       "price": 14000,
       "date_created": "2023-09-04T04:53:25.035Z",
-      "date_modified": "2023-09-04T03:57:49Z"
+      "date_modified": "2023-09-04T03:57:49Z",
+      "owner": null
     }
   },
   {
@@ -109,7 +99,8 @@
       "category": 22,
       "price": 6500,
       "date_created": "2023-09-04T04:53:25.035Z",
-      "date_modified": "2023-09-04T03:58:15Z"
+      "date_modified": "2023-09-04T03:58:15Z",
+      "owner": null
     }
   },
   {
@@ -122,7 +113,8 @@
       "category": 18,
       "price": 175000,
       "date_created": "2023-09-06T04:57:03.634Z",
-      "date_modified": "2023-09-06T04:56:58Z"
+      "date_modified": "2023-09-06T04:56:58Z",
+      "owner": null
     }
   },
   {
@@ -135,7 +127,8 @@
       "category": 20,
       "price": 36500,
       "date_created": "2023-09-06T04:58:04.484Z",
-      "date_modified": "2023-09-06T04:58:03Z"
+      "date_modified": "2023-09-06T04:58:03Z",
+      "owner": null
     }
   },
   {
@@ -148,29 +141,22 @@
       "category": 20,
       "price": 9500,
       "date_created": "2023-09-06T04:58:49.043Z",
-      "date_modified": "2023-09-06T04:58:48Z"
+      "date_modified": "2023-09-06T04:58:48Z",
+      "owner": null
     }
   },
   {
     "model": "catalog.product",
-    "pk": 30,
+    "pk": 33,
     "fields": {
       "name": "Test",
-      "description": "test",
-      "image": "img/Снимок_экрана_от_2023-09-26_09-44-14.png",
+      "description": "Test description",
+      "image": "img/Снимок_экрана_от_2023-09-26_19-21-40.png",
       "category": 33,
-      "price": 50250,
-      "date_created": "2023-09-26T06:41:11.632Z",
-      "date_modified": null
-    }
-  },
-  {
-    "model": "catalog.contacts",
-    "pk": 1,
-    "fields": {
-      "name": "Дмитрий",
-      "phone": "+79998887766",
-      "message": "Hello, Sky!"
+      "price": 4550,
+      "date_created": "2023-09-30T03:07:54.405Z",
+      "date_modified": null,
+      "owner": 17
     }
   },
   {
@@ -180,26 +166,6 @@
       "product": 20,
       "number_version": 1,
       "name_version": "первая",
-      "current_version": true
-    }
-  },
-  {
-    "model": "catalog.version",
-    "pk": 2,
-    "fields": {
-      "product": 30,
-      "number_version": 1,
-      "name_version": "Первая",
-      "current_version": true
-    }
-  },
-  {
-    "model": "catalog.version",
-    "pk": 5,
-    "fields": {
-      "product": 30,
-      "number_version": 2,
-      "name_version": "Вторая",
       "current_version": true
     }
   }

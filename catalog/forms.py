@@ -38,18 +38,12 @@ class ProductForm(MixinForm, forms.ModelForm):
 class VersionForm(MixinForm, forms.ModelForm):
     class Meta:
         model = Version
-        exclude = ('product', )
+        exclude = ('product',)
 
     def clean_product(self):
         clean_product = self.cleaned_data.get('product')
 
         return clean_product
-
-
-class CategoryForm(MixinForm, forms.ModelForm):
-    class Meta:
-        model = Category
-        fields = '__all__'
 
 
 class ContactForm(MixinForm, forms.ModelForm):

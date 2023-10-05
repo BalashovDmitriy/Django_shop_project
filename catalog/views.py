@@ -3,7 +3,7 @@ from django.forms import inlineformset_factory
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, DetailView, CreateView, UpdateView, DeleteView, ListView
 
-from catalog.forms import ProductForm, VersionForm, CategoryForm, ContactForm
+from catalog.forms import ProductForm, VersionForm, ContactForm
 from catalog.models import *
 
 
@@ -33,13 +33,6 @@ class ContactsView(CreateView):
                 fail_silently=False
             )
         return super().form_valid(form)
-
-
-class CategoryCreateView(CreateView):
-    model = Category
-    form_class = CategoryForm
-    template_name = 'catalog/category_list.html'
-    success_url = reverse_lazy('home')
 
 
 class CategoryListView(ListView):

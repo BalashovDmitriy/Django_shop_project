@@ -1,8 +1,10 @@
-<footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row">
-        <div class="col-11 text-right" style="font-size: x-large">
+<footer class="container-fluid pt-1 my-md-1 pt-md-1 border-top bg-dark">
+    <nav class="col-12">
+        <a class="col-3 custom-btn btn-3 text-center" style="width: 22rem" href="{% url 'blog_list' %}"><span class="span">Блог</span></a>
+        <a class="col-3 custom-btn btn-1 text-center" style="width: 22rem" href="{% url 'contacts' %}">Контакты</a>
+        <h3 class="col-12 text-right text-light" style="font-size: x-large">
             Django Shop Project
-            <small class="d-block mb-3 text-muted" style="font-size: large">&copy; 2023</small>
-        </div>
-    </div>
+            <small class="d-block mb-3 text-muted text-light" style="font-size: large">&copy; 2023</small>
+        </h3>
+    </nav>
 </footer>

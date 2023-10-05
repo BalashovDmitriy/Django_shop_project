@@ -1,4 +1,3 @@
-from django.core.mail import send_mail
 from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy

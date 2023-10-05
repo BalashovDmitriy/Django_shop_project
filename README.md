@@ -7,3 +7,4 @@
 - Установить зависимости командой ```pip install -r requirements.txt```<br>
 - В файле .env.sample заполнить данные для работы с проектом и переименовать его в .env<br>
 - Запустить через команду ```python3 manage.py runserver```
+- Опционально можно заполнить данные из data.json командой ```python3 manage.py loaddata data.json```

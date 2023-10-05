@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
@@ -9,7 +11,7 @@ from blog.models import Blog
 
 
 # Create your views here.
-class BlogCreateView(CreateView):
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     form_class = BlogForm
     success_url = reverse_lazy('blog_list')
@@ -51,7 +53,7 @@ class BlogDetailView(DetailView):
         return obj
 
 
-class BlogUpdateView(UpdateView):
+class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Blog
     form_class = BlogForm
 
@@ -66,11 +68,12 @@ class BlogUpdateView(UpdateView):
         return reverse('blog_detail', args=[self.object.slug])
 
 
-class BlogDeleteView(DeleteView):
+class BlogDeleteView(LoginRequiredMixin, DeleteView):
     model = Blog
     success_url = reverse_lazy('blog_list')
 
 
+@login_required
 def toggle_active(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
     if blog.to_publish:

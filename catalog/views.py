@@ -51,9 +51,9 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        self.object = form.save()
-        self.object.owner = self.request.user
-        self.object.save()
+        obj = form.save()
+        obj.owner = self.request.user
+        obj.save()
         return super().form_valid(form)
 
 
@@ -81,11 +81,15 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         context_data = self.get_context_data()
         formset = context_data['formset']
-        self.object = form.save()
+        obj = form.save()
         if formset.is_valid():
-            formset.instance = self.object
+            formset.instance = obj
             formset.save()
+        else:
+            form.add_error(None, 'Ошибка в версиях')
+            return self.form_invalid(form)
         return super().form_valid(form)
+
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):

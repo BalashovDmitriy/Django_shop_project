@@ -13,9 +13,10 @@
                     <p class="card-text">{{ object.text }}</p>
                     <p class="card-text">Создано: {{ object.created_at }}</p>
                     <p class="card-text">Просмотров: {{ object.views }}</p>
+                    <p class="card-text">Кем: {{ object.owner|default:'Django shop' }}</p>
                     <a href="{% url 'blog_list' %}" class="custom-btn btn-11">К списку статей</a>
                 </div>
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and object.owner.email == user.email or user.is_staff %}
                     <div class="card-footer">
                         <a href="{% url 'blog_update' object.slug %}" class="custom-btn btn-2">Редактировать</a>
                         {% if object.to_publish %}

@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
-
 from blog.forms import BlogForm
 from blog.models import Blog
 
@@ -17,10 +16,10 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('blog_list')
 
     def form_valid(self, form):
-        if form.is_valid():
-            new = form.save()
-            new.slug = slugify(new.title)
-            new.save()
+        obj = form.save()
+        obj.slug = slugify(obj.title)
+        obj.owner = self.request.user
+        obj.save()
         return super().form_valid(form)
 
 

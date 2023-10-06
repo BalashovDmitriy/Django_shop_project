@@ -20,6 +20,8 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ object.text|truncatechars:100 }}</p>
+                        <p class="card-text">Создано: {{ object.created_at }}</p>
+                        <p class="card-text">Кем: {{ object.owner|default:'Django shop' }}</p>
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'blog_detail' object.slug %}" class="custom-btn btn-11">Подробнее</a>

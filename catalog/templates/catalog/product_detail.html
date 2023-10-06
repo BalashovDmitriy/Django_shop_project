@@ -21,7 +21,7 @@
                     <p class="card-text">Владелец: {{ product.owner|default:'Django shop' }}</p>
                     <a href="{% url 'home' %}" class="custom-btn btn-11">К списку товаров</a>
                 </div>
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and product.owner.email == user.email or user.is_staff %}
                     <div class="card-footer">
                         <a href="{% url 'product_update' object.id %}" class="custom-btn btn-2">Редактировать</a>
                         <a href="{% url 'product_delete' object.id %}" class="custom-btn btn-5"><span>Удалить</span></a>

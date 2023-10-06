@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from blog.models import NULLABLE
+NULLABLE = {'null': True, 'blank': True}
 
 
 class User(AbstractUser):

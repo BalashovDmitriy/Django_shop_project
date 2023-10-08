@@ -22,16 +22,14 @@ class ProductForm(MixinForm, forms.ModelForm):
         clean_name = self.cleaned_data.get('name')
         for word in stop_words:
             if word in clean_name.lower():
-                raise forms.ValidationError(
-                    'Название не может содержать запрещённые слова')
+                raise forms.ValidationError('Название не может содержать запрещённые слова')
         return clean_name
 
     def clean_description(self):
         clean_description = self.cleaned_data.get('description')
         for word in stop_words:
             if word in clean_description.lower():
-                raise forms.ValidationError(
-                    'Описание не может содержать запрещённые слова')
+                raise forms.ValidationError('Описание не может содержать запрещённые слова')
         return clean_description
 
 
@@ -41,9 +39,11 @@ class VersionForm(MixinForm, forms.ModelForm):
         exclude = ('product',)
 
     def clean_product(self):
-        clean_product = self.cleaned_data.get('product')
-
-        return clean_product
+        cleaned_data = super().clean()
+        product = self.instance.product
+        current_version = cleaned_data.get('current_version')
+        if current_version and product.versions.filter(current_version=True).exclude(id=self.instance.id).exists():
+            raise forms.ValidationError('Только одна версия может быть активной')
 
 
 class ContactForm(MixinForm, forms.ModelForm):

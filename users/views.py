@@ -9,8 +9,6 @@ from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import CreateView, UpdateView
-
-from catalog.forms import MixinForm
 from config import settings
 from users.forms import UserCreationForm, UserUpdateForm
 from users.models import User

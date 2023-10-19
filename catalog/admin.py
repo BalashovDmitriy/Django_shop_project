@@ -7,9 +7,9 @@ from users.models import User
 # Register your models here.
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price', 'category',)
+    list_display = ('name', 'description', 'category', 'is_published')
     list_filter = ('category',)
-    search_fields = ('name', 'description',)
+    list_editable = ('description', 'category', 'is_published')
 
 
 @admin.register(Category)

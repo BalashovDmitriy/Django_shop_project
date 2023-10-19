@@ -8,7 +8,15 @@
             <div class="col-3 mb-2 mt-2">
                 <div class="card" style="width: 29rem; height: 20rem">
                     <div class="card-header">
-                        <h5 class="card-title">{{ product.name }}</h5>
+                        {% if user.is_staff %}
+                            {% if not product.is_published %}
+                                <p class="card-text alert alert-danger">{{ product.name }}</p>
+                            {% else %}
+                                <p class="card-title">{{ product.name }}</p>
+                            {% endif %}
+                        {% else %}
+                            <p class="card-title">{{ product.name }}</p>
+                        {% endif %}
                     </div>
                     <div class="card-body">
                         <p>{{ product.description|truncatechars:100 }}</p>
